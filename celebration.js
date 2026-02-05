@@ -3,9 +3,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const colors = ['#ff4d6d', '#ff69b4', '#ff85a2', '#ffc0cb', '#ff1493', '#ff6b6b'];
     const hearts = ['❤️', '💖', '💕', '💗', '💓', '💘', '💝'];
 
-    // Play celebration audio
+    // Play audio - should work since user clicked Yes button on previous page
     const audio = new Audio('Roth 2 copy.m4a');
     audio.play();
+
+    // Start animations immediately
+    // Initial burst of confetti
+    for (let i = 0; i < 50; i++) {
+        setTimeout(() => createConfetti(), i * 50);
+    }
+
+    // Continuous confetti
+    setInterval(() => {
+        createConfetti();
+    }, 200);
+
+    // Continuous floating hearts
+    setInterval(() => {
+        createFloatingHeart();
+    }, 500);
 
     // Create confetti
     function createConfetti() {
@@ -44,18 +60,4 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => heart.remove(), 4000);
     }
 
-    // Initial burst of confetti
-    for (let i = 0; i < 50; i++) {
-        setTimeout(() => createConfetti(), i * 50);
-    }
-
-    // Continuous confetti
-    setInterval(() => {
-        createConfetti();
-    }, 200);
-
-    // Continuous floating hearts
-    setInterval(() => {
-        createFloatingHeart();
-    }, 500);
 });
